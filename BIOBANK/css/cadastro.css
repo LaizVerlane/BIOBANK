@@ -1,0 +1,79 @@
+.centro{
+		margin:0;
+	height:100%;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.tit{
+	font-size:30px;
+	
+}
+
+.cadastro{
+	background-color: #3BCB86;
+	padding:1%;
+	
+}
+
+.campos{
+	display:inline;
+}
+
+.campinhos{
+	width:50%;
+	float:left;
+	height:350px;
+
+}
+
+.campo{
+	font-size:20px;
+	width: 100%;
+	margin-bottom:27px;
+}
+
+.campinhoimg{
+	width:50%;
+	height:350px;
+	float:left;
+
+}
+
+.campoimg{
+	width:80%;
+	background-color:white;
+	float: right;
+}
+
+.imgcadast{
+	width:100%;
+	object-fit: cover;
+}
+
+.tacaimg{
+	margin-top:5px;
+	float: right;
+	width:80%;
+}
+
+.campotextocont{
+	width:100%;
+}
+
+.campotexto{
+	width:99.2%;
+	height:100px;
+	resize: none;
+	font-size:20px;
+}
+
+.botaochave{
+	margin-top:10px;
+	margin-right:10px;
+	border-radius:40px;
+	background-color:#fff;
+	border-color:#fff;
+	border-style:solid;
+}

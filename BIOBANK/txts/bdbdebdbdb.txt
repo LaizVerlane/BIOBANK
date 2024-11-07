@@ -1,0 +1,482 @@
+
+*******************************	BANCO ********************************************
+CREATE database bdbiobank;
+use bdbiobank;
+
+CREATE TABLE tblanimal (
+id_ani INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomeani VARCHAR(20) NOT NULL,
+nomecientificoani VARCHAR(30) NOT NULL,
+habitatani VARCHAR(150) NOT NULL,
+familiaani VARCHAR(30) NOT NULL,
+corani VARCHAR(70) NOT NULL,
+situaçãoani VARCHAR(25) NOT NULL,
+txtani VARCHAR(750)
+);
+
+CREATE TABLE tblplanta (
+id_pla INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomepla VARCHAR(20) NOT NULL,
+nomecientificopla VARCHAR(30) NOT NULL,
+habitatpla VARCHAR(150) NOT NULL,
+familiapla VARCHAR(30) NOT NULL,
+corpla VARCHAR(70) NOT NULL,
+situaçãopla VARCHAR(25) NOT NULL,
+txtpla VARCHAR(750)
+);
+
+CREATE TABLE tbladm (
+id_adm INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomeadm VARCHAR(15) NOT NULL,
+senhaadm VARCHAR(15) NOT NULL
+);
+insert into tbladm (id_adm, nomeadm, senhaadm) values (null, 'admin', 'adm2023');
+
+************************** TESTE DE BANCO ********************************************
+<?php
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		echo "banco";
+	}
+	else{
+		echo "paia";
+		
+	}
+	
+?>
+
+*******************************	JAVA SCRIPT **************************************************
+<script language="javascript" type="text/jscript">
+            function fnValidarDados(){
+                //verificar se o campo n1 esta vazio
+                if(document.getElementById('txtn1').value == ''){
+                    alert('CAMPO VAZIO');
+                    document.getElementById('txtn1').focus();
+                	}
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO');
+                    	document.getElementById('txtn2').focus();
+                		}
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO');
+                    	document.getElementById('txtn2').focus();
+                		}
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO');
+                    	document.getElementById('txtn2').focus();
+                		}
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO!');
+                    	document.getElementById('txtn2').focus();
+                		}
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO');
+                    	document.getElementById('txtn2').focus();
+                		}
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO');
+                    	document.getElementById('txtn2').focus();
+               			 }
+                		else if (document.getElementById('txtn2').value == ''){
+                    	alert('CAMPO VAZIO');
+                    	document.getElementById('txtn2').focus();
+                		}		
+                	else{
+                    	document.frmWebPrincipal.action = './index.php?acao=';
+                    	document.frmWebPrincipal.submit();
+                	}
+                return false;
+            }
+
+                function fnLimparCampos() {
+                document.frmWebPrincipal.action = './index.php?acao=limpar';
+                document.frmWebPrincipal.submit();
+                return false;
+            }
+*******************************	CADASTRAR ANIMAIS ********************************************
+<?php
+//variavel banco
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	//variaves de insert
+	$nomeani = "";
+	$nomecieoani = "";
+	$habitatani = "";
+	$familiaani = "";
+	$corani = "";
+	$situaçãoani = "";
+	$localizacaoani = "";
+	$txtani = "";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$nomeani = $_REQUEST[""];
+		$nomecieoani = $_REQUEST[""];
+		$habitatani = $_REQUEST[""];
+		$familiaani = $_REQUEST[""];
+		$corani = $_REQUEST[""];
+		$situaçãoani = $_REQUEST[""];
+		$localizaçãoani = $_REQUEST[""];
+		$txtani = $_REQUEST[""];
+		
+		$sql =" insert into tblanimal (id_ani, nomeani, nomecientificoani, habitatani, familiaani, corani, situaçãoani, localizaçãoani, txtani)
+		values = (null,'".$nomeani."','".$nomecieoani."', '".$habitatani."', '".$familiaani."', '".$corani."', '".$situacaoani."', '".$localizaçãoani."', '".$txtani."' )";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo 'ok';
+			
+		}
+		else {
+			echo 'nok';
+		}
+		
+		if(acao = "limpar"){
+		
+		$nomeani = "";
+		$nomecieoani = "";
+		$habitatani = "";
+		$familiaani = "";
+		$corani = "";
+		$situaçãoani = "";
+		$localizacaoani = "";
+		$txtani = "";
+		
+		}
+		
+		}
+	}	
+?>
+
+*******************************	CADASTRAR PLANTAS ********************************************
+<?php
+//variavel banco
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	//variaves de insert
+	$nomepla = "";
+	$nomecieopla = "";
+	$habitatpla = "";
+	$familiapla = "";
+	$corpla = "";
+	$situaçãopla = "";
+	$localizacaopla = "";
+	$txtpla = "";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$nomepla = $_REQUEST[""];
+		$nomecieopla = $_REQUEST[""];
+		$habitatpla = $_REQUEST[""];
+		$familiapla = $_REQUEST[""];
+		$corpla = $_REQUEST[""];
+		$situaçãopla = $_REQUEST[""];
+		$localizacaopla = $_REQUEST[""];
+		$txtpla = $_REQUEST[""];
+		
+		$sql =" insert into tblplanta (id_ani, nomeani, nomecientificoani, habitatani, familiaani, corani, situaçãoani, localizaçãoani, txtani)
+		values = (null,'".$nomepla."','".$nomecieopla."', '".$habitatpla."', '".$familiapla."', '".$corpla."', '".$situacaopla."', '".$localizacaopla."', '".$txtpla."' )";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo 'ok';
+			
+		}
+		else {
+			echo 'nok';
+		}
+		
+		if(acao = "limpar"){
+		
+		$nomepla = "";
+		$nomecieopla = "";
+		$habitatpla = "";
+		$familiapla = "";
+		$corpla = "";
+		$situaçãopla = "";
+		$localizacaopla = "";
+		$txtpla = "";
+		
+		}
+		
+		}
+	}	
+?>
+
+*******************************	ALTERAR TABELA ANIMAL ********************************************
+<?php
+//variavel banco
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	//variaves de insert
+	$id_ani = "";
+	$nomeani = "";
+	$nomecieoani = "";
+	$habitatani = "";
+	$familiaani = "";
+	$corani = "";
+	$situaçãoani = "";
+	$localizacaoani = "";
+	$txtani = "";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$id_ani = $_REQUEST[""];
+		$nomeani = $_REQUEST[""];
+		$nomecieoani = $_REQUEST[""];
+		$habitatani = $_REQUEST[""];
+		$familiaani = $_REQUEST[""];
+		$corani = $_REQUEST[""];
+		$situaçãoani = $_REQUEST[""];
+		$localizaçãoani = $_REQUEST[""];
+		$txtani = $_REQUEST[""];
+		
+		$sql = "UPDATE tblanimal SET nomeani = '".$nomeani."', nomecientificoani = '".$nomecieoani."', habitatani = '".$habitatani."', familiaani = '".$familiaani."', corani = '".$corani."', situaçãoani = '".$situaçãoani."', localizaçãoani = '".$localizaçãoani."', txtani = '".$txtani."' 
+		WHERE id_ani = '".$id_ani."'";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo 'ok';
+			
+		}
+		else {
+			echo 'nok';
+		}
+		
+		if(acao = "limpar"){
+		
+		$id_ani = "";
+		$nomeani = "";
+		$nomecieoani = "";
+		$habitatani = "";
+		$familiaani = "";
+		$corani = "";
+		$situaçãoani = "";
+		$localizacaoani = "";
+		$txtani = "";
+		
+		}
+		
+		}
+	}	
+?>
+
+*******************************	ALTERAR TABELA PLANTA ********************************************
+<?php
+//variavel banco
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	//variaves de insert
+	$id_pla = "";
+	$nomepla = "";
+	$nomecieopla = "";
+	$habitatpla = "";
+	$familiapla = "";
+	$corpla = "";
+	$situaçãopla = "";
+	$localizacaopla = "";
+	$txtpla = "";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$id_pla = $_REQUEST[""];
+		$nomepla = $_REQUEST[""];
+		$nomecieopla = $_REQUEST[""];
+		$habitatpla = $_REQUEST[""];
+		$familiapla = $_REQUEST[""];
+		$corpla = $_REQUEST[""];
+		$situaçãopla = $_REQUEST[""];
+		$localizacaopla = $_REQUEST[""];
+		$txtpla = $_REQUEST[""];
+		
+		$sql = "UPDATE tblplanta SET nomepla = '".$nomepla."', nomecientificopla = '".$nomecieopla."', habitatpla = '".$habitatpla."', familiapla = '".$familiapla."', corpla = '".$corpla."', situaçãopla = '".$situaçãopla."', localizaçãopla = '".$localizacaopla."', txtpla = '".$txtpla."' 
+		WHERE id_pla = '".$id_pla."'";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo 'ok';
+			
+		}
+		else {
+			echo 'nok';
+		}
+		
+		if(acao = "limpar"){
+		
+		$id_pla = "";
+		$nomepla = "";
+		$nomecieopla = "";
+		$habitatpla = "";
+		$familiapla = "";
+		$corpla = "";
+		$situaçãopla = "";
+		$localizacaopla = "";
+		$txtpla = "";
+		
+		}
+		
+		}
+	}	
+?>
+
+*******************************	DELETAR TABELA ANIMAL ********************************************
+<?php
+//variavel banco
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	//variaves de insert
+	$id_ani = "";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$id_ani = $_REQUEST[""];
+		
+		$sql = "DELETE FROM tblanimal WHERE id_ani = "'.$id_ani.'"";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo 'ok';
+			
+		}
+		else {
+			echo 'nok';
+		}
+		
+		if(acao = "limpar"){
+		
+		$id_ani = "";
+		
+		}
+		
+		}
+	}	
+?>
+
+*******************************	DELETAR TABELA PLANTA ********************************************
+<?php
+//variavel banco
+	$servidor = "localhost";
+	$usuario="root";
+	$senha ="root";
+	$banco = "bdbiobank";
+	//variaves de insert
+	$id_pla = "";
+	
+	$conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
+	
+	if($conexao){
+		
+		$aberto = mysqli_select_db($conexao,$banco);
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$id_pla = $_REQUEST[""];
+		
+		$sql = "DELETE FROM tblplanta WHERE id_ani = "'.$id_pla.'"";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo 'ok';
+			
+		}
+		else {
+			echo 'nok';
+		}
+		
+		if(acao = "limpar"){
+		
+		$id_pla = "";
+		
+		}
+		
+		}
+	}	
+?>
+
+*******************************	CONSULTAR TABELA ANIMAL ******************************************
+
+*******************************	CONSULTAR TABELA PLANTA ******************************************

@@ -1,0 +1,303 @@
+** LOGIN DE USUARIO **
+<?php		
+	require_once('conexao.php');
+
+	if($_POST){
+			
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "login"){		
+		$admnome = $_REQUEST["usrnome"];
+		$admsenha = $_REQUEST["senha"];
+		
+		$sql = "select * from tbladm where nomeadm = '".$admnome."' and senhaadm = '" .$admsenha."'";
+		$dados = mysqli_query($conexao, $sql);
+					if(mysqli_affected_rows($conexao) > 0){
+					header("Location: teste.html");
+				}
+		
+		else {
+			echo "<script>alert('usuario ou senha ')</script>";
+		}
+		}	
+	}		
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>		
+    <title>Login</title>
+	<link rel="stylesheet" href="style1.css">
+	<script language="javascript" type="text/jscript">
+	function fnValidarDados(){
+                //verificar se o campo n1 esta vazio
+                if(document.getElementById('usernome').value == ''){
+                    alert('campo usuario vazio');
+                    document.getElementById('usernome').focus();
+                }
+                else if (document.getElementById('senha').value == ''){
+                    alert('campo senha vazio');
+                    document.getElementById('senha').focus();
+                }
+                else{
+                    document.frmWebPrincipal.action = './login.php?acao=login';
+                    document.frmWebPrincipal.submit();
+                }
+                return false;
+            }
+
+                function fnLimparCampos() {
+                document.frmWebPrincipal.action = './login.php?acao=limpar';
+                document.frmWebPrincipal.submit();
+                return false;
+            }
+	</script>
+</head>
+
+<body>
+
+    <main class="container">
+        <h2>Login</h2>
+       <form id="frmWebPrincipal" name="frmWebPrincipal" method="post" action="">
+            <div class="input-field">
+                <input type="text" name="usrnome" id="usernome" value = ""
+                    placeholder="Insira seu usuario">
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" name="senha" id="senha" value = ""
+                    placeholder="Insira sua senha">
+                <div class="underline"></div>	
+            </div>
+        </form>
+		</br>
+			 <input type = "button" class = "brotao2" id = "btnlogin" name = "btnlogin"  value = "continuar" onclick = "fnValidarDados()"/>
+			 <input type = "button" class = "brotao"  id = "btnlimpar" name = "btnlimpar"  value = "limpar" onclick = "fnLimparDados()"/>
+    </main>
+	</form>
+</body>
+</html>
+
+** CADASTRO DE ESPECIES **
+<?php		
+	require_once('conexao.php');
+	
+	if($_POST){
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "cadastrar"){
+		
+		$nomeani = $_REQUEST["nomeani"];
+		$nomecieani = $_REQUEST["nomecieani"];
+		$habitatani = $_REQUEST["habitatani"];
+		$familiaani = $_REQUEST["familiaani"];
+		$corani = $_REQUEST["corani"];
+		$situaçãoani = $_REQUEST["situaçãoani"];
+		$txtani = $_REQUEST["txtani"];
+		
+		$sql =" insert into tblanimal (id_ani, nomeani, nomecientificoani, habitatani, familiaani, corani, situaçãoani, txtani)
+		values (null,'".$nomeani."','".$nomecieani."', '".$habitatani."', '".$familiaani."', '".$corani."', '".$situaçãoani."', '".$txtani."' )";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo "<script>alert('animal cadastrado com sucesso')</script>";
+			
+		}
+		else {
+			echo "<script>alert('falha ao cadastrar animal')</script>";
+		}
+		}
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>		
+    <title>Cadastro</title>
+	<script language="javascript" type="text/jscript">
+	function fnCadastrarDados(){
+                //verificar se o campo esta vazio
+                if(document.getElementById('nomeani').value == ''){
+                    alert('campo vazio');
+                    document.getElementById('nomeani').focus();
+                }
+                	else if (document.getElementById('nomecieani').value == ''){
+                    	alert('campo vazio');
+                    	document.getElementById('nomecieani').focus();
+                	}
+                		else if (document.getElementById('habitatani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('habitatani').focus();
+                		}
+                		else if (document.getElementById('familiaani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('familiaani').focus();
+                		}
+                		else if (document.getElementById('corani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('corani').focus();
+                		}
+                		else if (document.getElementById('situaçãoani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('situaçãoani').focus();
+                		}
+                		else if (document.getElementById('txtani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('txtani').focus();
+                		}
+                else{
+                    document.frmWebPrincipal.action = './cadastro.php?acao=cadastrar';
+                    document.frmWebPrincipal.submit();
+                }
+                return false;
+            }
+
+                function fnLimparCampos() {
+                document.frmWebPrincipal.action = './login.php?acao=limpar';
+                document.frmWebPrincipal.submit();
+                return false;
+            }
+	</script>
+</head>
+<body>
+
+    <main>
+        <h2>Cadastro de animal</h2>
+       <form id="frmWebPrincipal" name="frmWebPrincipal" method="post" action="">
+            <div><input type="text" name="nomeani" id="nomeani" value = ""placeholder="Insira o nome popular do animal" size = "30px"></div>
+            <div><input type="text" name="nomecieani" id="nomecieani" value = "" placeholder="Insira o nome cientifico do animal" size = "30px"></div>
+			<div><input type="text" name="habitatani" id="habitatani" value = "" placeholder="Insira o habitat principal do animal" size = "30px"></div>
+			<div><input type="text" name="familiaani" id="familiaani" value = "" placeholder="Insira sua a familia pertencente do animal" size = "30px"></div>
+			<div><input type="text" name="corani" id="corani" value = "" placeholder="Insira a cor predominante do animal" size = "30px"></div>
+			<div><input type="text" name="situaçãoani" id="situaçãoani" value = "" placeholder="Insira a situação presente do animal" size = "30px"></div>
+			<div><input type="text" name="txtani" id="txtani" value = "" placeholder="Insira um breve texto sobre o animal" size = "150px" height=1000></div>			
+        </form>
+		</br>
+			 <input type = "button" id = "btnlogin" name = "btnlogin"  value = "cadastrar" onclick = "fnCadastrarDados()"/>
+			 <input type = "button" id = "btnlimpar" name = "btnlimpar"  value = "limpar" onclick = "fnLimparDados()"/>
+    </main>
+	</form>
+</body>
+</html>
+
+** ALTERAR ANIMAIS ** 
+<?php		
+	require_once('conexao.php');
+	
+	if($_POST){
+		
+		if(isset($_REQUEST["acao"])){
+			$acao = $_REQUEST["acao"];
+		}
+		
+		if ($acao == "alterar"){
+		
+		$id_ani = $_REQUEST["idani"];
+		$nomeani = $_REQUEST["nomeani"];
+		$nomecieoani = $_REQUEST["nomecieani"];
+		$habitatani = $_REQUEST["habitatani"];
+		$familiaani = $_REQUEST["familiaani"];
+		$corani = $_REQUEST["corani"];
+		$situaçãoani = $_REQUEST["situaçãoani"];
+		$txtani = $_REQUEST["txtani"];
+		
+		$sql = "UPDATE tblanimal SET nomeani = '".$nomeani."', nomecientificoani = '".$nomecieoani."', habitatani = '".$habitatani."', familiaani = '".$familiaani."', corani = '".$corani."', situaçãoani = '".$situaçãoani."', txtani = '".$txtani."' 
+		WHERE id_ani = '".$id_ani."'";
+		
+		$dados = mysqli_query($conexao, $sql);
+		
+		if(mysqli_affected_rows($conexao)>0){
+			
+			echo "<script>alert('Animal alterado com sucesso');</script>";
+			
+		}
+		else {
+			echo "<script>alert('falha ao alterar o animal');</script>";
+		}
+			
+		}
+	}	
+?>
+
+<!DOCTYPE html>
+<html>
+<head>		
+    <title>Cadastro</title>
+	<script language="javascript" type="text/jscript">
+	function fnAlterarDados(){
+                //verificar se o campo esta vazio 
+                if(document.getElementById('idani').value == ''){
+                    alert('campo id obrigatorio');
+                    document.getElementById('idani').focus();
+                }
+                		else if(document.getElementById('nomeani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('nomeani').focus();
+                		}
+                		else if (document.getElementById('nomecieani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('nomecieani').focus();
+                		}
+                		else if (document.getElementById('habitatani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('habitatani').focus();
+                		}
+                		else if (document.getElementById('familiaani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('familiaani').focus();
+                		}
+                		else if (document.getElementById('corani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('corani').focus();
+                		}
+                		else if (document.getElementById('situaçãoani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('situaçãoani').focus();
+                		}
+                		else if (document.getElementById('txtani').value == ''){
+                    		alert('campo vazio');
+                    		document.getElementById('txtani').focus();
+                		}                	
+                	else{
+                    	document.frmWebPrincipal.action = './alterar.php?acao=alterar';
+                    	document.frmWebPrincipal.submit();
+                	}
+                return false;
+            }
+
+                function fnLimparCampos() {
+                document.frmWebPrincipal.action = './login.php?acao=limpar';
+                document.frmWebPrincipal.submit();
+                return false;
+            }
+	</script>
+</head>
+<body>
+
+    <main>
+        <h2>Cadastro de animal</h2>
+       <form id="frmWebPrincipal" name="frmWebPrincipal" method="post" action="">
+			<div><input type="text" name="idani" id="idani" value = ""placeholder="Insira o id do animal que deseja alterar" size = "30px"></div>
+            <div><input type="text" name="nomeani" id="nomeani" value = ""placeholder="Insira o nome popular do animal" size = "30px"></div>
+            <div><input type="text" name="nomecieani" id="nomecieani" value = "" placeholder="Insira o nome cientifico do animal" size = "30px"></div>
+			<div><input type="text" name="habitatani" id="habitatani" value = "" placeholder="Insira o habitat principal do animal" size = "30px"></div>
+			<div><input type="text" name="familiaani" id="familiaani" value = "" placeholder="Insira sua a familia pertencente do animal" size = "30px"></div>
+			<div><input type="text" name="corani" id="corani" value = "" placeholder="Insira a cor predominante do animal" size = "30px"></div>
+			<div><input type="text" name="situaçãoani" id="situaçãoani" value = "" placeholder="Insira a situação presente do animal" size = "30px"></div>
+			<div><input type="text" name="txtani" id="txtani" value = "" placeholder="Insira um breve texto sobre o animal" size = "150px" height=1000></div>			
+        </form>
+		</br>
+			 <input type = "button" id = "btnlogin" name = "btnlogin"  value = "alterar" onclick = "fnAlterarDados()"/>
+			 <input type = "button" id = "btnlimpar" name = "btnlimpar"  value = "limpar" onclick = "fnLimparDados()"/>
+    </main>
+	</form>
+</body>
+</html>

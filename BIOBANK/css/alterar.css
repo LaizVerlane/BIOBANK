@@ -1,0 +1,77 @@
+.centro{
+		margin:0;
+	height:100%;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.tit{
+	font-size:30px;
+	
+}
+
+.cadastro{
+	background-color: #3BCB86;
+	padding:1%;
+	
+}
+
+
+
+.campos{
+	display:inline;
+	font-size:20px;
+}
+
+.campinhos{
+	width:50%;
+	float:left;
+	height:400px;
+
+}
+
+
+.campo{
+	font-size:20px;
+	width: 100%;
+	margin-bottom:27px;
+}
+
+.campinhoimg{
+	width:50%;
+	height:400px;
+	float:left;
+	
+
+}
+
+
+.imgcadast{
+	width:90%;
+	float: right;
+	object-fit: cover;
+}
+
+.alttexttrampo{
+	width:90%;
+	float:right;
+}
+
+.tacaimg{
+	margin-top:5px;
+	float: right;
+	width: 90%;
+}
+
+.campotextocont{
+	width:100%;
+}
+
+.campotexto{
+	width:99.2%;
+	height:100px;
+	resize: none;
+	font-size:20px;
+}
+

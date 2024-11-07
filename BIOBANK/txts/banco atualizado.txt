@@ -1,0 +1,33 @@
+CREATE database bdbiobank;
+use bdbiobank;
+
+CREATE TABLE tblanimal (
+id_ani INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomeani VARCHAR(20) NOT NULL,
+nomecientificoani VARCHAR(30) NOT NULL,
+habitatani VARCHAR(200) NOT NULL,
+familiaani VARCHAR(40) NOT NULL,
+corani VARCHAR(200) NOT NULL,
+situaçãoani VARCHAR(30) NOT NULL,
+txtani VARCHAR(750) NOT NULL,
+imgani longblob NOT NULL
+);
+
+CREATE TABLE tblplanta (
+id_pla INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomepla VARCHAR(20) NOT NULL,
+nomecientificopla VARCHAR(30) NOT NULL,
+habitatpla VARCHAR(200) NOT NULL,
+familiapla VARCHAR(40) NOT NULL,
+corpla VARCHAR(200) NOT NULL,
+cultivopla VARCHAR(250) NOT NULL,
+txtpla VARCHAR(750) NOT NULL,
+imgpla longblob NOT NULL
+);
+
+CREATE TABLE tbladm (
+id_adm INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomeadm VARCHAR(15) NOT NULL,
+senhaadm VARCHAR(15) NOT NULL
+);
+insert into tbladm (id_adm, nomeadm, senhaadm) values (null, 'admin', 'adm2023');

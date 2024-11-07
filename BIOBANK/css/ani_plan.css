@@ -1,0 +1,89 @@
+.tudin{
+	width:100%;
+	display:flex;
+	justify-content: space-evenly;
+
+}
+
+.buscaani_plan{
+	background-color: #3BCB86;
+	padding:1%;
+	height:100%;
+	border-radius:10px;
+}
+
+h2{
+	text-align: center;
+}
+
+.radiochave{
+	width:100%;
+	font-size:20px;
+	display:flex;
+	justify-content:space-between;
+	border-radius:20px;
+}
+
+.nomebusc{
+	width:100%;
+	font-size:20px;
+}
+
+.osbtnchave{
+	width:100%;
+	display:flex;
+	justify-content: space-evenly;
+	margin-top:90%;
+	
+}
+
+.btnchave{
+	border-radius:40px;
+	background-color:#fff;
+	border-color:#fff;
+	border-style:solid;
+	
+	
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:15px;
+	padding-right:15px;
+	font-size:20px;
+}
+
+.fundo{
+		background-color: #3BCB86;
+}
+
+.mostani_plan{
+
+		padding:1%;
+		border-radius:10px;
+}
+
+.imgani_plan{
+	width:50%;
+		float:left;
+}
+
+.imagemaniplan{
+	width:90%;
+}
+
+.infoani_plan{
+	width:50%;
+	float:right;
+
+}
+
+.linha{
+	width:100%;
+	height:8.33%;
+	margin-bottom:8.33%;
+}
+
+.textanim_plan{
+	width:100%;
+	float:left;
+	word-wrap: break-word;
+}

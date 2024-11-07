@@ -1,0 +1,57 @@
+
+.tit_areares{
+	font-size:30px;
+	font-weight:bold;
+	background-color:#3BCB86;
+	width:fit-content;
+	padding:10px;
+	border-radius:30px;
+	text-align:center;
+	
+}
+.texto_areares{
+	width:50%;
+}
+
+.img_areares{
+	width:50%;
+	height:30%;
+	 object-fit: cover;
+}
+
+.cont_aniplan_res{
+	height:30%;
+	display:flex;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	font-size:20px;
+	Line-height:40px;
+}
+
+.centro{
+
+	height:100%;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.paragrafo{
+	margin-left:5%;
+}
+
+.hipbagulhos{
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+}
+
+.hipbagulhos:hover{
+	text-decoration:none;
+	color:#3Baa99;
+}
+
+.hipbagulhos:visited{
+	text-decoration:none;
+	color:#3Baa99;
+}
